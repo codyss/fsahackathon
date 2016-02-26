@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('myApp', ['ui.router', 'ui.bootstrap', 'firebase']);
+var app = angular.module('myApp', ['ui.router', 'firebase']);
 
 app.config(function($urlRouterProvider) {
   $urlRouterProvider.when('/', '/index')
