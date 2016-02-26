@@ -1,24 +1,22 @@
 'use strict';
 
-// Declare app level module which depends on filters, and services
-angular.module('myApp', [
-    'myApp.config',
-    'myApp.security',
-    'myApp.home',
-    'myApp.account',
-    'myApp.chat',
-    'myApp.login'
-  ])
-  
-  .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.otherwise({
-      redirectTo: '/home'
-    });
-  }])
-  
-  .run(['$rootScope', 'Auth', function($rootScope, Auth) {
-    // track status of authentication
-    Auth.$onAuth(function(user) {
-      $rootScope.loggedIn = !!user;
-    });
-  }]);
+var app = angular.module('myApp', ['ui.router', 'ui.bootstrap', 'firebase', 'ngDialog']);
+
+app.config(function($urlRouterProvider) {
+  $urlRouterProvider.when('/', '/index')
+})
+
+app.config(function($locationProvider) {
+  $locationProvider.html5Mode({enabled:true, requireBase:false})
+})
+
+app.config(function($stateProvider) {
+  $stateProvider.state('index', {
+    url: '/index',
+    templateUrl: '/templates/projectsList.html',
+    controller: 'index',
+    resolve: {
+      
+    }
+  })
+})

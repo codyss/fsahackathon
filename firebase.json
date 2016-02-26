@@ -1,5 +1,5 @@
 {
-  "firebase": "INSTANCE",
+  "firebase": "fsahackathon",
   "public": "app",
   "ignore": [
     "firebase.json",
